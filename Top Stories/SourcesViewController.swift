@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewController.swift //SourcesViewController
 //  Top Stories
 //
 //  Created by Benecia Shi on 7/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SourcesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
