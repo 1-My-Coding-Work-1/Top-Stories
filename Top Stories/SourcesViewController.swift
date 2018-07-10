@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SourcesViewController: UIViewController {
+class SourcesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
