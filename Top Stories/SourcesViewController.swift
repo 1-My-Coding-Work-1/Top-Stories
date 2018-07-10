@@ -30,6 +30,20 @@ class SourcesViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let source = sources[indexPath.row]
+        cell.textLabel?.text = source["name"]
+        cell.detailTextLabel?.text = source["description"]
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sources.count //adds own specifications
+    }
+    
+    
     func parse(json: JSON) {
         for result in json["sources"].arrayValue {
             let id = result["id"].stringValue
