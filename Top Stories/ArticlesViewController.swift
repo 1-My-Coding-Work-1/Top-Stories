@@ -77,6 +77,10 @@ class ArticlesViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //segues to Safari web browser when article is selected
+        let url = URL(string: articles[indexPath.row]["url"]!)
+        UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil) // ???
+    }
+
 }
 

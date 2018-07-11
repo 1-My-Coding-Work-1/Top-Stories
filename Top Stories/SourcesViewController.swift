@@ -6,9 +6,15 @@
 //  Copyright © 2018 Benecia Shi. All rights reserved.
 //
 
+//remember to push the changes to Github, "...to push commits made on your local branch to a remote repository. The git push command takes two arguments: A remote name, for example, origin. A branch name, for example, master..."-pushing to a remote, GitHub Help
+
 import UIKit
 
 class SourcesViewController: UITableViewController {
+    
+    @IBAction func onDoneButtonTapped(_ sender: Any) {
+        exit(0) //0? (idk) //closes app when the button is tapped
+    }
     
     var sources = [[String: String]]()
     let apiKey = "5d892509a49046a087917c466fa80d09"
@@ -75,6 +81,13 @@ class SourcesViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! ArticlesViewController //[segue to ArticlesViewController code]
+        let index = tableView.indexPathForSelectedRow?.row
+        dvc.source = sources [index!]
+        dvc.apiKey = apiKey
     }
 
 
